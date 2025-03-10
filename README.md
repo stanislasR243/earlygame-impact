@@ -87,4 +87,13 @@ This histogram shows that this difference is logically symetric (depending on th
 
 ### Bvariate Analysis
 
+We perform a bivariate analysis to see if having a positive gold diff at 15 minutes implies a higher winrate (a result of 1 in our Dataframe).
 
+<iframe
+  src="assets/golddiffat15_positive_reults.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+This pie shows that a positive gold diff at 15 minutes logically implies a higher winrate at the end of the game with more than 60% game won if the gold difference is positive. To quantify how much the early game matters, we will analyse other columns in order to see the most important parameters.
