@@ -71,7 +71,7 @@ Here is the head of our Dataframe to better understand the data we are using :
 | 132542  | Blue | 1      | 4128.0   | 4003.0 | 21.0   | 230.0        | 573.0      | 1.0        | 0.0       | 5.0         | 1.0        | 1.0            | 1.0             | 3.0            |
 
 
-### Unvariate Analysis
+### Univariate Analysis
 
 We perform an unvariate analysis to see the distribution of the gold difference a 15 minutes.
 
@@ -83,3 +83,8 @@ We perform an unvariate analysis to see the distribution of the gold difference 
 ></iframe>
 
 This histogram shows that this difference is logically symetric (depending on the side red/blue we have an identical value, positive or negative). This histogram also highlights that this gold diff at 15 minutes is small most of the time so it will be interesting to see if this gold difference truly has an impact on the final result of the game.
+
+
+### Bvariate Analysis
+
+
