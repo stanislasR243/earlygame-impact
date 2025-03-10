@@ -70,4 +70,10 @@ Here is the head of our Dataframe to better understand the data we are using :
 | 132542  | Blue | 1      | 7296.0   | 5626.0 | 141.0  | 2811.0       | 1047.0     | 40.0       | 4.0       | 2.0         | 0.0        | 0.0            | 1.0             | 3.0            |
 | 132542  | Blue | 1      | 4128.0   | 4003.0 | 21.0   | 230.0        | 573.0      | 1.0        | 0.0       | 5.0         | 1.0        | 1.0            | 1.0             | 3.0            |
 
+<iframe
+  src="assets/golddiffat15_plot.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
