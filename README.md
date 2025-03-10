@@ -34,7 +34,11 @@ The analysis includes:
 - Fairness and Bias Evaluation  
 
 ## Dataset  
-The dataset is sourced from **Oracle’s Elixir** and contains match statistics from professional *LoL* games played in 2022.  
+The dataset is sourced from **Oracle’s Elixir** and contains match statistics from professional *LoL* games played in 2022. 
+
+### **Data Cleaning**
+
+By exploring the data, we found out that some values were missing in every quantitative columns. As there are many the raws in every column we are using (even the ones were some data is missing), we simply chose to drop the raws were some values are missing.
 
 ### **Relevant Columns and Descriptions** 
 
