@@ -54,5 +54,16 @@ The dataset consists of 117,576 rows and captures key gameplay statistics and ma
 - **`deathsat15`**: The number of deaths suffered by the team at the 15-minute mark.  
 - **`opp_killsat15`**: The number of kills secured by the opposing team at the 15-minute mark.  
 - **`opp_assistsat15`**: The number of assists recorded by the opposing team at the 15-minute mark.  
-- **`opp_deathsat15`**: The number of deaths suffered by the opposing team at the 15-minute mark.  
+- **`opp_deathsat15`**: The number of deaths suffered by the opposing team at the 15-minute mark.
+
+Here is the head of our Dataframe to better understand the data we are using : 
+
+| gameid            | side | result | goldat15 | xpat15 | csat15 | golddiffat15 | xpdiffat15 | csdiffat15 | killsat15 | assistsat15 | deathsat15 | opp_killsat15 | opp_assistsat15 | opp_deathsat15 |
+|-------------------|------|--------|----------|--------|--------|--------------|------------|------------|-----------|-------------|------------|----------------|-----------------|----------------|
+| 132542  | Blue | 1      | 5229.0   | 7644.0 | 136.0  | -575.0       | -603.0     | -8.0       | 0.0       | 0.0         | 0.0        | 1.0            | 0.0             | 0.0            |
+| 132542  | Blue | 1      | 5366.0   | 5342.0 | 99.0   | 236.0        | -107.0     | -6.0       | 2.0       | 2.0         | 1.0        | 1.0            | 1.0             | 0.0            |
+| 132542  | Blue | 1      | 5015.0   | 7406.0 | 133.0  | -409.0       | 39.0       | -4.0       | 0.0       | 1.0         | 1.0        | 0.0            | 2.0             | 0.0            |
+| 132542  | Blue | 1      | 7296.0   | 5626.0 | 141.0  | 2811.0       | 1047.0     | 40.0       | 4.0       | 2.0         | 0.0        | 0.0            | 1.0             | 3.0            |
+| 132542  | Blue | 1      | 4128.0   | 4003.0 | 21.0   | 230.0        | 573.0      | 1.0        | 0.0       | 5.0         | 1.0        | 1.0            | 1.0             | 3.0            |
+
 
