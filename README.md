@@ -90,7 +90,7 @@ This histogram shows that this difference is logically symetric (depending on th
 We perform a bivariate analysis to see if having a positive gold diff at 15 minutes implies a higher winrate (a result of 1 in our Dataframe).
 
 <iframe
-  src="assets/golddiffat15_positive_reults.html"
+  src="assets/golddiffat15_positive_results.html"
   width="800"
   height="600"
   frameborder="0"
