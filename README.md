@@ -97,3 +97,14 @@ We perform a bivariate analysis to see if having a positive gold diff at 15 minu
 ></iframe>
 
 This pie shows that a positive gold diff at 15 minutes logically implies a higher winrate at the end of the game with more than 60% game won if the gold difference is positive. To quantify how much the early game matters, we will analyse other columns in order to see the most important parameters.
+
+### Interesting Aggregates
+
+After grouping the dataset by the `result` column (where `1` represents a win and `0` represents a loss), we computed the average values for the columns representing the differences at 15 minutes (gold difference, experience difference, and creep score difference). The table below shows the mean values of these differences for each result:
+
+| result | golddiffat15 | xpdiffat15 | csdiffat15 |
+|--------|--------------|------------|------------|
+| 1      | 505.45       | 330.88     | 5.69       |
+| 0      | -505.45      | -330.88    | -5.69      |
+
+With this Dataframe, we understand that several datas have a real impact on the result of the game and we understand which of them are the most important to predict the result of a game. As we could have predict, a team that has a positive xpdiffat15 or csdiffat15 (as cs provides gold this column is likely related to the golddiffat15 one so it isn't surprising) is more likely to win a game.
