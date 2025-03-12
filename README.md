@@ -1,15 +1,4 @@
-# The impact of the early-game in League of Legends
-
-
-## Description  
-This data science project, conducted at the University of California, San Diego (UCSD), explores the impact of the **"early-game"** in *League of Legends* matches. The study follows a comprehensive analytical process, including:  
-
-- Exploratory data analysis  
-- Hypothesis testing  
-- Baseline model creation  
-- Fairness analysis  
-
-The primary objective is to evaluate the influence of the early-game on match statistics and outcomes.  
+# The impact of the early-game in League of Legends 
 
 Authors : Stanislas Robineau, Louis Depiesse
 
