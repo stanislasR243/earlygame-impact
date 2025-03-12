@@ -136,3 +136,22 @@ To ensure that the values were missing in the same raws for out two columns, we 
 
 We can confirm that there is a missingness dependancy between our two columns as the values are missing in the same raws for both.
 
+## Hypothesis Testing 
+
+**Null Hypothesis (H₀):**  
+There is no significant difference in the average gold difference at 15 minutes between games that resulted in a win and those that resulted in a loss.
+
+**Alternative Hypothesis (H₁):**  
+There is a significant difference in the average gold difference at 15 minutes between games that resulted in a win and those that resulted in a loss (a positive gold difference implies a higher probability of winning).
+
+### Test Statistic:  
+The test statistic chosen is the **difference in means** between the games that resulted in a win (result = 1) and the games that resulted in a loss (result = 0).
+
+### Significance Level:  
+The significance level chosen for this hypothesis test is typically **α = 0.05**.
+
+### Statistical Test and p-value:  
+To test the hypotheses, we will use a **difference in means** between the two groups (games won vs. games lost). This test will compare the average gold difference at 15 minutes for games with result = 1 (win) and result = 0 (loss)
+
+
+
