@@ -108,3 +108,26 @@ After grouping the dataset by the `result` column (where `1` represents a win an
 | 0      | -505.45      | -330.88    | -5.69      |
 
 With this Dataframe, we understand that several datas have a real impact on the result of the game and we understand which of them are the most important to predict the result of a game. As we could have predict, a team that has a positive xpdiffat15 or csdiffat15 (as cs provides gold this column is likely related to the golddiffat15 one so it isn't surprising) is more likely to win a game.
+
+## Assessment of Missingness
+
+### NMAR Analysis
+
+In our columns, we believe the **`goldat15`** column is NMAR (Not Missing At Random) as it would be possible for the team to surrend if the team is playing poorly in the early game. Therefore, there would not be any gold at 15 minutes for some games. The missingness would depend on other factors of the game such as the team overall performance. We could add a **`team_surrended_at_15`** with a value of 1 if the team surrended after 15 minutes and 0 otherwise to make our column MAR (Missing At Random).
+
+### Missingness Dependancy
+
+We wanted to observe if there was a missingness dependancy between **`csdiffat15`** and **`xpdiffat15`** so we first represented the distribution of **`xpdiffat15`** when **`csdiffat15`** was and was not missing and we could observe that there was not any value for **`xpdiffat15`** when **`csdiffat15`** was missing.
+
+
+
+
+To ensure that the values were missing in the same raws for out two columns, we counted if there was the same number of missing values in each columns.
+
+| result | csdiffat15 | xpdiffat15 |
+|--------|------------|------------|
+| 0      | 8370       | 8370       |
+| 1      | 8346       | 8346       |
+
+We can confirm that there is a missingness dependancy between our two columns as the values are missing in the same raws for both.
+
