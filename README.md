@@ -120,7 +120,12 @@ In our columns, we believe the **`goldat15`** column is NMAR (Not Missing At Ran
 We wanted to observe if there was a missingness dependancy between **`csdiffat15`** and **`xpdiffat15`** so we first represented the distribution of **`xpdiffat15`** when **`csdiffat15`** was and was not missing and we could observe that there was not any value for **`xpdiffat15`** when **`csdiffat15`** was missing.
 
 
-
+<iframe
+  src="assets/golddiffat15_present.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 To ensure that the values were missing in the same raws for out two columns, we counted if there was the same number of missing values in each columns.
 
