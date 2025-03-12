@@ -151,7 +151,16 @@ The test statistic chosen is the **difference in means** between the games that 
 The significance level chosen for this hypothesis test is typically **α = 0.05**.
 
 ### Statistical Test and p-value:  
-To test the hypotheses, we will use a **difference in means** between the two groups (games won vs. games lost). This test will compare the average gold difference at 15 minutes for games with result = 1 (win) and result = 0 (loss)
+To test the hypotheses, we will use a **difference in means** between the two groups (games won vs. games lost). This test will compare the average gold difference at 15 minutes for games with result = 1 (win) and result = 0 (loss).
+
+<iframe
+  src="assets/golddiffat15_by_result.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+Based on the hypothesis test performed, with a **p-value of 0.0**, we **reject** the null hypothesis. This indicates that there is a statistically significant difference in the average gold difference at 15 minutes between games that resulted in a win and those that resulted in a loss. Specifically, a positive gold difference at 15 minutes is associated with a higher probability of winning the game.
 
 
 
