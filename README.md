@@ -151,5 +151,19 @@ To test the hypotheses, we will use a **difference in means** between the two gr
 
 Based on the hypothesis test performed, with a **p-value of 0.0**, we **reject** the null hypothesis. This indicates that there is a statistically significant difference in the average gold difference at 15 minutes between games that resulted in a win and those that resulted in a loss. Specifically, a positive gold difference at 15 minutes is associated with a higher probability of winning the game.
 
+## Framing a Prediction Problem (Team Differences Only)
 
+For this step, we define a prediction problem that focuses solely on the relative advantage between teams at the 15-minute mark.
+
+**Objective:** Predict the outcome of a League of Legends match using the differences in early-game statistics between the two teams.  
+**Target Variable:** `result` (1 = win, 0 = loss).  
+**Features Used:**  
+- `golddiffat15`: Gold difference between teams.  
+- `xpdiffat15`: Experience difference between teams.  
+- `csdiffat15`: Creep score (CS) difference between teams.
+
+**Problem Type:** Binary classification.  
+**Evaluation Metric:** We will use the F1-score (or AUC-ROC) to measure model performance, ensuring that both precision and recall are well-balanced.
+
+This choice is justified by our preliminary analyses, which indicate that an early-game advantage—as measured by these differences—is strongly correlated with a win. By focusing solely on these relative indicators, we aim to quantify the net impact of an early advantage or disadvantage on the final match outcome.
 
