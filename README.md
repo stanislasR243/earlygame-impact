@@ -237,3 +237,35 @@ Below is a sample of the newly engineered features for a few games:
   The combination of richer features and optimized hyperparameters has yielded a model that, while only moderately better in metrics, demonstrates the effectiveness of leveraging additional statistical insights. This approach shows promise for further refinements, indicating that additional feature engineering or a more expansive hyperparameter search might yield even greater gains.
 
 In summary, our final model builds upon the baseline by integrating both raw and engineered features that capture multiple dimensions of early-game performance, resulting in improved predictive capabilities.
+
+## Fairness Analysis of the Final Model
+
+In this analysis, we investigate whether our final model performs differently for teams on the Blue side (Group X) compared to those on the Red side (Group Y) using **precision** as our evaluation metric. Our goal is to determine if the model is fair—that is, if its precision is roughly the same for both groups—or if there is a statistically significant difference.
+
+### Groups:
+- **Blue:** Matches where the team is on the Blue side.
+- **Red:** Matches where the team is on the Red side.
+
+### Evaluation Metric:
+- **Precision:** The fraction of predicted wins that are actual wins.
+
+### Hypotheses:
+- **Null Hypothesis (H₀):** The model is fair; any difference in precision between Blue and Red is due to random chance.
+- **Alternative Hypothesis (H₁):** The model is unfair; specifically, the precision for one group is significantly lower than the other.
+
+### Observed Results:
+- **Observed precision (Blue):** 0.69044  
+- **Observed precision (Red):** 0.64611  
+- **Observed precision difference (Blue - Red):** 0.04433
+
+### Permutation Test:
+We performed a permutation test by randomly shuffling the 'side' labels among the test samples 1,000 times and recalculating the precision difference for each permutation. The p-value is computed as the proportion of permuted differences that are as extreme as (or more extreme than) the observed difference.
+
+- **Permutation test p-value:** 1.0
+
+### Interpretation:
+The observed precision for Blue (0.69044) is slightly higher than for Red (0.64611), with an observed difference of 0.04433. However, the permutation test yielded a p-value of 1.0. This high p-value indicates that such a difference (or a more extreme one) is very common under the null hypothesis of fairness. In other words, the observed difference in precision between Blue and Red is not statistically significant.
+
+**Conclusion:**  
+We fail to reject the null hypothesis. There is no evidence from the permutation test to suggest that the model performs significantly differently for Blue side matches compared to Red side matches in terms of precision.
+
