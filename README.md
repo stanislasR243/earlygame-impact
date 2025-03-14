@@ -201,18 +201,39 @@ We evaluated our model using two key metrics: F1-score and AUC-ROC.
 ### Interpretation
 
 - **F1-score Improvement:**  
-  Compared to the baseline model (which had an F1-score of 0.65), our final model’s F1-score increased slightly to 0.66. This modest improvement indicates that our enhanced features and hyperparameter tuning have helped the model achieve a better balance between precision and recall, reducing the misclassification rate marginally.
+  Compared to the baseline model (F1-score = 0.65), our final model’s F1-score has increased to 0.66. Although the improvement is modest, it indicates that our enhanced features and fine-tuning have helped the model achieve a slightly better balance between precision and recall. This means the model is marginally better at correctly predicting wins and losses, reducing misclassifications.
 
 - **AUC-ROC Improvement:**  
-  The AUC-ROC increased from 0.71 in the baseline model to 0.73 in the optimized model. This improvement suggests that the model's ability to discriminate between winning and losing matches has improved, meaning that it can more reliably rank a randomly chosen win higher than a randomly chosen loss.
+  The AUC-ROC improved from 0.71 in the baseline to 0.73 in the optimized model. This suggests that the model’s discriminative power has increased; it can more reliably distinguish between winning and losing matches by assigning higher probabilities to wins over losses.
 
 - **Overall Impact:**  
-  Although the improvements in both metrics are moderate, they confirm that the additional features (like gold/XP ratio, kill efficiency, and advantage index) and the careful tuning of model parameters contribute to a slightly better predictive performance. These enhancements demonstrate the value of targeted feature engineering and hyperparameter optimization, even if further work may be needed to achieve substantial performance gains.
+  While the numerical gains are moderate, these improvements confirm that our targeted feature engineering—such as adding the **gold/XP ratio**, **CS/Gold ratio**, **kill advantage**, **assist advantage**, and the combined **advantage index**—coupled with hyperparameter tuning, has enhanced the model’s predictive performance. This is a clear step up from the baseline, as we now leverage both raw statistics and engineered insights to capture the nuances of early-game performance.
 
-|   goldat15 |   xpat15 |   csat15 |   golddiffat15 |   xpdiffat15 |   csdiffat15 |   killsat15 |   assistsat15 |   deathsat15 |   opp_killsat15 |   opp_assistsat15 |   opp_deathsat15 |   gold_xp_ratio |   cs_gold_ratio |   kill_advantage |   assist_advantage |   advantage_index |   result |
-|-----------:|---------:|---------:|---------------:|-------------:|-------------:|------------:|--------------:|-------------:|----------------:|------------------:|-----------------:|----------------:|----------------:|-----------------:|-------------------:|------------------:|---------:|
-|       5229 |     7644 |      136 |           -575 |         -603 |           -8 |           0 |             0 |            0 |               1 |                 0 |                0 |        0.684066 |      0.0260088  |               -1 |                  0 |          -395.333 |        1 |
-|       5366 |     5342 |       99 |            236 |         -107 |           -6 |           2 |             2 |            1 |               1 |                 1 |                0 |        1.00449  |      0.0184495  |                1 |                  1 |            41     |        1 |
-|       5015 |     7406 |      133 |           -409 |           39 |           -4 |           0 |             1 |            1 |               0 |                 2 |                0 |        0.677154 |      0.0265204  |                0 |                 -1 |          -124.667 |        1 |
-|       7296 |     5626 |      141 |           2811 |         1047 |           40 |           4 |             2 |            0 |               0 |                 1 |                3 |        1.29684  |      0.0193257  |                4 |                  1 |          1299.33  |        1 |
-|       4128 |     4003 |       21 |            230 |          573 |            1 |           0 |             5 |            1 |               1 |                 1 |                3 |        1.03123  |      0.00508721 |               -1 |                  4 |           268     |        1 |
+### Engineered Features Table
+
+Below is a sample of the newly engineered features for a few games:
+
+|   gold_xp_ratio |   cs_gold_ratio |   kill_advantage |   assist_advantage |   advantage_index |
+|----------------:|----------------:|-----------------:|-------------------:|------------------:|
+|        0.684066 |      0.0260088  |               -1 |                  0 |          -395.333 |
+|        1.00449  |      0.0184495  |                1 |                  1 |            41     |
+|        0.677154 |      0.0265204  |                0 |                 -1 |          -124.667 |
+|        1.29684  |      0.0193257  |                4 |                  1 |          1299.33  |
+|        1.03123  |      0.00508721 |               -1 |                  4 |           268     |
+
+### Explanation of Choices and Improvements
+
+- **Feature Engineering Enhancements:**  
+  In contrast to Step 6 where only the basic difference features were used, we now created several new engineered features:
+  - **gold_xp_ratio:** Measures the efficiency of converting experience into gold.
+  - **cs_gold_ratio:** Indicates how effectively a team translates gold into creep score.
+  - **kill_advantage & assist_advantage:** Quantify the difference in kills and assists between the team and its opponent.
+  - **advantage_index:** Provides an aggregated measure of the team’s early-game advantage by averaging the differences in gold, XP, and CS.
+
+- **Hyperparameter Optimization:**  
+  By tuning parameters such as the number of trees, maximum depth, and minimum samples per leaf, we tailored the Random Forest model to better fit our data. This fine-tuning contributes to the slight improvements seen in both F1-score and AUC-ROC.
+
+- **Overall Improvement:**  
+  The combination of richer features and optimized hyperparameters has yielded a model that, while only moderately better in metrics, demonstrates the effectiveness of leveraging additional statistical insights. This approach shows promise for further refinements, indicating that additional feature engineering or a more expansive hyperparameter search might yield even greater gains.
+
+In summary, our final model builds upon the baseline by integrating both raw and engineered features that capture multiple dimensions of early-game performance, resulting in improved predictive capabilities.
