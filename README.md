@@ -192,3 +192,27 @@ We evaluated our model using two key metrics: F1-score and AUC-ROC.
 - The **F1-score** of 0.65 indicates that our model maintains a reasonable balance between precision and recall, making it fairly competent in predicting the correct match outcome, although some misclassifications occur.
 - The **AUC-ROC** of 0.71 demonstrates that the model has a moderate ability to differentiate between winning and losing matches.
 - Together, these metrics show that while early-game differences provide a meaningful signal for predicting match outcomes, the baseline model still has significant room for improvement. This gives us a solid starting point to explore further feature engineering and hyperparameter tuning in subsequent steps.
+
+## Optimized Final Model Performance
+
+- **F1-score:** 0.66  
+- **AUC-ROC:** 0.73
+
+### Interpretation
+
+- **F1-score Improvement:**  
+  Compared to the baseline model (which had an F1-score of 0.65), our final model’s F1-score increased slightly to 0.66. This modest improvement indicates that our enhanced features and hyperparameter tuning have helped the model achieve a better balance between precision and recall, reducing the misclassification rate marginally.
+
+- **AUC-ROC Improvement:**  
+  The AUC-ROC increased from 0.71 in the baseline model to 0.73 in the optimized model. This improvement suggests that the model's ability to discriminate between winning and losing matches has improved, meaning that it can more reliably rank a randomly chosen win higher than a randomly chosen loss.
+
+- **Overall Impact:**  
+  Although the improvements in both metrics are moderate, they confirm that the additional features (like gold/XP ratio, kill efficiency, and advantage index) and the careful tuning of model parameters contribute to a slightly better predictive performance. These enhancements demonstrate the value of targeted feature engineering and hyperparameter optimization, even if further work may be needed to achieve substantial performance gains.
+
+|   goldat15 |   xpat15 |   csat15 |   golddiffat15 |   xpdiffat15 |   csdiffat15 |   killsat15 |   assistsat15 |   deathsat15 |   opp_killsat15 |   opp_assistsat15 |   opp_deathsat15 |   gold_xp_ratio |   cs_gold_ratio |   kill_advantage |   assist_advantage |   advantage_index |   result |
+|-----------:|---------:|---------:|---------------:|-------------:|-------------:|------------:|--------------:|-------------:|----------------:|------------------:|-----------------:|----------------:|----------------:|-----------------:|-------------------:|------------------:|---------:|
+|       5229 |     7644 |      136 |           -575 |         -603 |           -8 |           0 |             0 |            0 |               1 |                 0 |                0 |        0.684066 |      0.0260088  |               -1 |                  0 |          -395.333 |        1 |
+|       5366 |     5342 |       99 |            236 |         -107 |           -6 |           2 |             2 |            1 |               1 |                 1 |                0 |        1.00449  |      0.0184495  |                1 |                  1 |            41     |        1 |
+|       5015 |     7406 |      133 |           -409 |           39 |           -4 |           0 |             1 |            1 |               0 |                 2 |                0 |        0.677154 |      0.0265204  |                0 |                 -1 |          -124.667 |        1 |
+|       7296 |     5626 |      141 |           2811 |         1047 |           40 |           4 |             2 |            0 |               0 |                 1 |                3 |        1.29684  |      0.0193257  |                4 |                  1 |          1299.33  |        1 |
+|       4128 |     4003 |       21 |            230 |          573 |            1 |           0 |             5 |            1 |               1 |                 1 |                3 |        1.03123  |      0.00508721 |               -1 |                  4 |           268     |        1 |
