@@ -167,31 +167,65 @@ For this step, we define a prediction problem that focuses solely on the relativ
 
 This choice is justified by our preliminary analyses, which indicate that an early-game advantage—as measured by these differences—is strongly correlated with a win. By focusing solely on these relative indicators, we aim to quantify the net impact of an early advantage or disadvantage on the final match outcome.
 
-## Baseline Model
+## Baseline Model Description
 
-In this step, we build a simple baseline model to predict match outcomes using only the differences in team statistics at 15 minutes (`golddiffat15`, `xpdiffat15`, and `csdiffat15`). We started by cleaning the data—dropping rows with missing values—and then split the dataset into a training set (80%) and a testing set (20%). Our model uses a scikit-learn pipeline that first standardizes the features with `StandardScaler` and then applies a `LogisticRegression` classifier.
+### Model Overview
 
-**Features and Target:**  
-- **Features:** `golddiffat15`, `xpdiffat15`, `csdiffat15`  
-- **Target:** `result` (1 = win, 0 = loss)
+In this step, we built a simple baseline model to predict match outcomes based solely on the differences in team statistics at 15 minutes. We used a scikit-learn pipeline that first standardizes the features using `StandardScaler` and then applies a logistic regression classifier (`LogisticRegression`) for binary classification.
 
-**Model Pipeline:**  
-- The features are standardized so that they have a mean of 0 and a standard deviation of 1.  
-- A Logistic Regression classifier is used for its simplicity and interpretability in binary classification.
+### Features and Their Types
 
-**Evaluation Metrics:**  
-We evaluated our model using two key metrics: F1-score and AUC-ROC.
+**Features Used:**  
+- `golddiffat15`  
+- `xpdiffat15`  
+- `csdiffat15`
 
-- **F1-score (0.65):**  
-  The F1-score balances precision and recall. A score of 0.65 suggests that the model does a fair job overall in predicting wins and losses, though it does miss some cases. This indicates that while the model is reasonably good at both identifying true positives and avoiding false positives, there is still room for improvement.
+#### Feature Categorization
 
-- **AUC-ROC (0.71):**  
-  The AUC-ROC score measures how well the model distinguishes between the two classes. A value of 0.71 means that, given a random win and a random loss, there’s a 71% chance that the model will correctly rank the winning match higher than the losing one. This is a decent performance, showing moderate discriminative ability.
+- **Quantitative Features:**  
+  - All three features (`golddiffat15`, `xpdiffat15`, and `csdiffat15`) are quantitative. They represent continuous numerical values and were directly standardized.
+  
+- **Ordinal and Nominal Features:**  
+  - No ordinal or nominal features are used in this model, so no additional encoding (such as ordinal encoding or one-hot encoding) was necessary.
 
-**Overall Interpretation:**  
-- The **F1-score** of 0.65 indicates that our model maintains a reasonable balance between precision and recall, making it fairly competent in predicting the correct match outcome, although some misclassifications occur.
-- The **AUC-ROC** of 0.71 demonstrates that the model has a moderate ability to differentiate between winning and losing matches.
-- Together, these metrics show that while early-game differences provide a meaningful signal for predicting match outcomes, the baseline model still has significant room for improvement. This gives us a solid starting point to explore further feature engineering and hyperparameter tuning in subsequent steps.
+### Model Pipeline
+
+1. **Data Cleaning:**  
+   - Rows with missing values were dropped to ensure the data quality.
+  
+2. **Data Splitting:**  
+   - The dataset was split into a training set (80%) and a testing set (20%).
+  
+3. **Standardization:**  
+   - `StandardScaler` was applied to the quantitative features so that each has a mean of 0 and a standard deviation of 1.
+  
+4. **Classification:**  
+   - A logistic regression classifier was used for its simplicity and interpretability in a binary classification setting.
+
+### Model Performance
+
+We evaluated the model using two key performance metrics:
+
+- **F1-Score:** 0.65  
+  - This metric indicates a balanced trade-off between precision and recall. An F1-score of 0.65 suggests that while the model performs reasonably well in predicting wins and losses, it still misses some cases.
+  
+- **AUC-ROC:** 0.71  
+  - The AUC-ROC score of 0.71 implies that the model has a moderate ability to distinguish between winning and losing matches. In other words, given a random win and a random loss, there is a 71% chance that the model will correctly rank the winning match higher.
+
+### Interpretation and Model Quality
+
+- **Strengths:**
+  - The model’s simplicity allows for easy interpretation of results.
+  - Standardizing the quantitative features ensures that all inputs contribute equally to the model’s performance.
+  - The performance metrics (F1-score of 0.65 and AUC-ROC of 0.71) indicate that the model is moderately effective at predicting match outcomes.
+
+- **Limitations and Areas for Improvement:**
+  - Since the model relies only on three early-game statistics, it might not capture the full complexity of match dynamics.
+  - Further improvements could be achieved by incorporating additional features, engaging in more advanced feature engineering, and performing hyperparameter tuning.
+
+### Conclusion
+
+This baseline model provides a solid starting point for predicting match outcomes based on early-game statistics. While the current performance is acceptable for an initial model, there is significant room for enhancement by expanding the feature set and optimizing the modeling approach. Overall, the model is considered "good" as a preliminary approach, yet future developments are expected to further refine its predictive power.
 
 ## Optimized Final Model Performance
 
